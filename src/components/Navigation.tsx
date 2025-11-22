@@ -44,6 +44,12 @@ export const Navigation = () => {
               Why Us
             </button>
             <button
+              onClick={() => scrollToSection("portfolio")}
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              Portfolio
+            </button>
+            <button
               onClick={() => scrollToSection("team")}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
@@ -87,6 +93,12 @@ export const Navigation = () => {
                 className="text-muted-foreground hover:text-primary transition-colors text-left"
               >
                 Why Us
+              </button>
+              <button
+                onClick={() => scrollToSection("portfolio")}
+                className="text-muted-foreground hover:text-primary transition-colors text-left"
+              >
+                Portfolio
               </button>
               <button
                 onClick={() => scrollToSection("team")}
