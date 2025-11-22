@@ -9,53 +9,53 @@ import securityImage from "@/assets/team/security.jpg";
 
 const teamMembers = [
   {
-    name: "Michael Chen",
+    name: "Eric Ghoukasian",
     role: "Chief Executive Officer",
     image: ceoImage,
-    bio: "With over 15 years in fintech and blockchain, Michael leads Meta2140's vision to revolutionize decentralized finance. Previously led blockchain initiatives at Fortune 500 companies.",
-    email: "michael.chen@meta2140.com",
-    linkedin: "#"
+    bio: "With over 15 years in fintech and blockchain, Eric leads Meta2140's vision to revolutionize decentralized finance. Previously led blockchain initiatives at Fortune 500 companies.",
+    email: "eric@meta2140.com",
+    linkedin: "https://www.linkedin.com/in/eric-ghoukasian",
   },
   {
-    name: "Sarah Rodriguez",
+    name: "John Meltzer",
     role: "Chief Technology Officer",
     image: ctoImage,
-    bio: "Sarah brings 12+ years of experience in distributed systems and cryptocurrency development. She architected secure blockchain solutions handling billions in transactions.",
-    email: "sarah.rodriguez@meta2140.com",
-    linkedin: "#"
+    bio: "John brings 12+ years of experience in distributed systems and cryptocurrency development. He architected secure blockchain solutions handling billions in transactions.",
+    email: "john.meltzer@meta2140.com",
+    linkedin: "https://www.linkedin.com/in/john-meltzer-93485030",
   },
   {
-    name: "David Kim",
+    name: "Benjamin Jacquiot",
     role: "Lead Blockchain Architect",
     image: architect1Image,
-    bio: "Expert in smart contract development and DeFi protocols. David has designed and deployed over 50 production blockchain applications with zero security breaches.",
-    email: "david.kim@meta2140.com",
-    linkedin: "#"
+    bio: "Expert in smart contract development and DeFi protocols. Benjamin has designed and deployed over 18 production blockchain applications with zero security breaches.",
+    email: "benjamin.jacquiot@meta2140.com",
+    linkedin: "https://www.linkedin.com/in/benjamin-jacquiot-754248152",
   },
-  {
-    name: "Elena Volkov",
-    role: "Senior Blockchain Architect",
-    image: architect2Image,
-    bio: "Specializing in cross-chain protocols and Layer 2 solutions. Elena holds a PhD in Cryptography and has published research on blockchain scalability.",
-    email: "elena.volkov@meta2140.com",
-    linkedin: "#"
-  },
-  {
-    name: "Jessica Martinez",
-    role: "Lead Smart Contract Developer",
-    image: developer1Image,
-    bio: "Full-stack blockchain developer with expertise in Solidity, Rust, and Web3 integration. Jessica has audited and optimized smart contracts securing over $500M in assets.",
-    email: "jessica.martinez@meta2140.com",
-    linkedin: "#"
-  },
-  {
-    name: "Thomas Anderson",
-    role: "Head of Security",
-    image: securityImage,
-    bio: "Cybersecurity specialist focused on blockchain security audits and penetration testing. Thomas previously worked with government agencies on cryptocurrency security protocols.",
-    email: "thomas.anderson@meta2140.com",
-    linkedin: "#"
-  }
+  // {
+  //   name: "Elena Volkov",
+  //   role: "Senior Blockchain Architect",
+  //   image: architect2Image,
+  //   bio: "Specializing in cross-chain protocols and Layer 2 solutions. Elena holds a PhD in Cryptography and has published research on blockchain scalability.",
+  //   email: "elena.volkov@meta2140.com",
+  //   linkedin: "#",
+  // },
+  // {
+  //   name: "Jessica Martinez",
+  //   role: "Lead Smart Contract Developer",
+  //   image: developer1Image,
+  //   bio: "Full-stack blockchain developer with expertise in Solidity, Rust, and Web3 integration. Jessica has audited and optimized smart contracts securing over $500M in assets.",
+  //   email: "jessica.martinez@meta2140.com",
+  //   linkedin: "#",
+  // },
+  // {
+  //   name: "Thomas Anderson",
+  //   role: "Head of Security",
+  //   image: securityImage,
+  //   bio: "Cybersecurity specialist focused on blockchain security audits and penetration testing. Thomas previously worked with government agencies on cryptocurrency security protocols.",
+  //   email: "thomas.anderson@meta2140.com",
+  //   linkedin: "#",
+  // },
 ];
 
 export const Team = () => {
@@ -65,7 +65,10 @@ export const Team = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Meet Our <span className="text-transparent bg-clip-text bg-gradient-primary">Expert Team</span>
+              Meet Our{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-primary">
+                Expert Team
+              </span>
             </h2>
             <p className="text-xl text-muted-foreground">
               Industry-leading blockchain experts driving innovation
@@ -87,8 +90,12 @@ export const Team = () => {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-1">{member.name}</h3>
-                  <p className="text-primary font-semibold mb-3">{member.role}</p>
+                  <h3 className="text-xl font-bold text-foreground mb-1">
+                    {member.name}
+                  </h3>
+                  <p className="text-primary font-semibold mb-3">
+                    {member.role}
+                  </p>
                   <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                     {member.bio}
                   </p>
