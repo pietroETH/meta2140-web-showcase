@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, Users, Heart, TrendingUp, Coffee, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const Careers = () => {
   const { toast } = useToast();
@@ -127,21 +128,50 @@ const Careers = () => {
     },
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Application Submitted!",
-      description: "We'll review your application and get back to you soon.",
-    });
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      position: "",
-      resume: "",
-      coverLetter: "",
-    });
-    setSelectedPosition(null);
+    
+    try {
+      const { data, error } = await supabase.functions.invoke(
+        "submit-career-application",
+        {
+          body: {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            position: formData.position,
+            resume: formData.resume,
+            coverLetter: formData.coverLetter,
+          },
+        }
+      );
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Application Submitted!",
+        description: "We've received your application and will get back to you soon.",
+      });
+
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        position: "",
+        resume: "",
+        coverLetter: "",
+      });
+      setSelectedPosition(null);
+    } catch (error: any) {
+      console.error("Error submitting application:", error);
+      toast({
+        title: "Submission Failed",
+        description: error.message || "There was an error submitting your application. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleApply = (positionTitle: string) => {
