@@ -1,17 +1,35 @@
 import { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/meta2140-logo.jpg";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
+    setIsOpen(false);
+  };
+
+  const handleNavigate = (path: string) => {
+    navigate(path);
+    setIsOpen(false);
   };
 
   return (
@@ -54,6 +72,12 @@ export const Navigation = () => {
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               Team
+            </button>
+            <button
+              onClick={() => handleNavigate("/careers")}
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              Careers
             </button>
             <Button
               onClick={() => scrollToSection("contact")}
@@ -105,6 +129,12 @@ export const Navigation = () => {
                 className="text-muted-foreground hover:text-primary transition-colors text-left"
               >
                 Team
+              </button>
+              <button
+                onClick={() => handleNavigate("/careers")}
+                className="text-muted-foreground hover:text-primary transition-colors text-left"
+              >
+                Careers
               </button>
               <Button
                 onClick={() => scrollToSection("contact")}
